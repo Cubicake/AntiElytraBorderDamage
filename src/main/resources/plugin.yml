@@ -1,0 +1,12 @@
+name: AntiElytraBorderDamage
+description: $description
+prefix: AntiElytraBorderDamage
+version: '$version'
+
+main: games.cubi.elytraworldborder.AntiElytraBorderDamage
+paperPluginLoader: games.cubi.elytraworldborder.AntiElytraBorderDamageLoader
+api-version: '26.2'
+load: POSTWORLD
+
+authors: [ _Cubicake ]
+website: https://cubi.games
