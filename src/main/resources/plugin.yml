@@ -4,8 +4,7 @@ prefix: AntiElytraBorderDamage
 version: '$version'
 
 main: games.cubi.elytraworldborder.AntiElytraBorderDamage
-paperPluginLoader: games.cubi.elytraworldborder.AntiElytraBorderDamageLoader
-api-version: '26.2'
+api-version: '1.13'
 load: POSTWORLD
 
 authors: [ _Cubicake ]

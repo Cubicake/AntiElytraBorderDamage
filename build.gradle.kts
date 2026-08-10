@@ -1,32 +1,40 @@
 plugins {
     id("java-library")
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
     id("xyz.jpenilla.run-paper") version "3.0.2"
 }
 
 repositories {
     mavenCentral()
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://maven.elmakers.com/repository/")
 }
 
 dependencies {
-    paperweight.paperDevBundle("26.1.2.build.+")
+    compileOnly("org.spigotmc:spigot-api:1.11.2-R0.1-SNAPSHOT")
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 tasks {
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("26.1.2")
-        jvmArgs("-Xms2G", "-Xmx2G", "-Dcom.mojang.eula.agree=true")
+        minecraftVersion("1.17.1")
+
+        jvmArgs(
+            "-Xms2G",
+            "-Xmx2G",
+            "-Dcom.mojang.eula.agree=true"
+        )
     }
 
     processResources {
-        val props = mapOf("version" to version, "description" to project.description)
+        val props = mapOf(
+            "version" to version,
+            "description" to project.description
+        )
+
         filesMatching("plugin.yml") {
             expand(props)
         }
