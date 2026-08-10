@@ -13,6 +13,10 @@ public final class AntiElytraBorderDamage extends JavaPlugin implements Listener
     @Override
     public void onEnable() {
         // Plugin startup logic
+        Bukkit.getPluginManager().registerEvents(this,this);
+
+        int pluginID = 33283;
+        Metrics metrics = new Metrics(this, pluginID);
     }
 
     @Override
